@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+:root {
+  /* Razorpay Buildathon Design Tokens */
+  --bg-primary: #0A0A0B;        /* near-black, main background */
+  --bg-secondary: #131316;      /* slightly raised surface (cards) */
+  --bg-tertiary: #1C1C20;       /* hover/active surface */
+  --border-subtle: #26262B;     /* card borders, dividers */
+
+  /* Text */
+  --text-primary: #F5F5F7;      /* headlines, primary content */
+  --text-secondary: #A1A1AA;    /* supporting text, descriptions */
+  --text-tertiary: #6B6B71;     /* metadata, timestamps, IDs */
+
+  /* Accent — use sparingly, like Razorpay's blue */
+  --accent: #3B82F6;
+  --accent-hover: #5B95F7;
+  --accent-muted: rgba(59, 130, 246, 0.12); /* backgrounds for accent chips */
+
+  /* Risk tiers — the ONLY other saturated colors allowed anywhere */
+  --risk-low: #22C55E;
+  --risk-review: #F59E0B;
+  --risk-hold: #EF4444;
+
+  /* App Variable Mappings (Default Dark Mode) */
+  --color-brand-bg: var(--bg-primary);
+  --color-brand-panel: var(--bg-secondary);
+  --color-brand-panel-light: var(--bg-tertiary);
+  --color-brand-border: var(--border-subtle);
+  
+  --color-text-100: var(--text-primary);
+  --color-text-200: var(--text-primary);
+  --color-text-300: var(--text-secondary);
+  --color-text-400: var(--text-secondary);
+  --color-text-500: var(--text-tertiary);
+
+  --color-risk-low: var(--risk-low);
+  --color-risk-review: var(--risk-review);
+  --color-risk-hold: var(--risk-hold);
+  --color-brand-accent: var(--accent);
+
+  /* Button - Dismiss (Green) / Success */
+  --color-btn-dismiss-bg: rgba(34, 197, 94, 0.08);
+  --color-btn-dismiss-border: rgba(34, 197, 94, 0.2);
+  --color-btn-dismiss-text: var(--risk-low);
+  --color-btn-dismiss-hover-bg: rgba(34, 197, 94, 0.15);
+  --color-btn-dismiss-hover-text: var(--risk-low);
+
+  /* Button - Approve (Neutral) / Info */
+  --color-btn-approve-bg: var(--bg-secondary);
+  --color-btn-approve-border: var(--border-subtle);
+  --color-btn-approve-text: var(--text-secondary);
+  --color-btn-approve-hover-bg: var(--bg-tertiary);
+  --color-btn-approve-hover-text: var(--text-primary);
+
+  /* Button - Escalate (Amber) / Warning */
+  --color-btn-escalate-bg: rgba(245, 158, 11, 0.08);
+  --color-btn-escalate-border: rgba(245, 158, 11, 0.2);
+  --color-btn-escalate-text: var(--risk-review);
+  --color-btn-escalate-hover-bg: rgba(245, 158, 11, 0.15);
+  --color-btn-escalate-hover-text: var(--risk-review);
+
+  /* Status - Error (Red) */
+  --color-status-error-bg: rgba(239, 68, 68, 0.08);
+  --color-status-error-border: rgba(239, 68, 68, 0.2);
+  --color-status-error-text: var(--risk-hold);
+
+  /* Pipeline Diagram Colors */
+  --color-pipeline-purple: #C084FC;
+  --color-pipeline-green: var(--risk-low);
+}
+
+
+
+@theme {
+  --color-brand-bg: var(--color-brand-bg);
+  --color-brand-panel: var(--color-brand-panel);
+  --color-brand-panel-light: var(--color-brand-panel-light);
+  --color-brand-border: var(--color-brand-border);
+  
+  --color-slate-100: var(--color-text-100);
+  --color-slate-200: var(--color-text-200);
+  --color-slate-300: var(--color-text-300);
+  --color-slate-400: var(--color-text-400);
+  --color-slate-500: var(--color-text-500);
+  
+  --color-risk-low: var(--color-risk-low);
+  --color-risk-review: var(--color-risk-review);
+  --color-risk-hold: var(--color-risk-hold);
+  --color-brand-accent: var(--color-brand-accent);
+
+  /* Action Buttons mapping */
+  --color-btn-dismiss-bg: var(--color-btn-dismiss-bg);
+  --color-btn-dismiss-border: var(--color-btn-dismiss-border);
+  --color-btn-dismiss-text: var(--color-btn-dismiss-text);
+  --color-btn-dismiss-hover-bg: var(--color-btn-dismiss-hover-bg);
+  --color-btn-dismiss-hover-text: var(--color-btn-dismiss-hover-text);
+
+  --color-btn-approve-bg: var(--color-btn-approve-bg);
+  --color-btn-approve-border: var(--color-btn-approve-border);
+  --color-btn-approve-text: var(--color-btn-approve-text);
+  --color-btn-approve-hover-bg: var(--color-btn-approve-hover-bg);
+  --color-btn-approve-hover-text: var(--color-btn-approve-hover-text);
+
+  --color-btn-escalate-bg: var(--color-btn-escalate-bg);
+  --color-btn-escalate-border: var(--color-btn-escalate-border);
+  --color-btn-escalate-text: var(--color-btn-escalate-text);
+  --color-btn-escalate-hover-bg: var(--color-btn-escalate-hover-bg);
+  --color-btn-escalate-hover-text: var(--color-btn-escalate-hover-text);
+
+  /* Status / Alerts mapping */
+  --color-status-error-bg: var(--color-status-error-bg);
+  --color-status-error-border: var(--color-status-error-border);
+  --color-status-error-text: var(--color-status-error-text);
+
+  /* Pipeline Diagram mapping */
+  --color-pipeline-purple: var(--color-pipeline-purple);
+  --color-pipeline-green: var(--color-pipeline-green);
+  
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-brand-bg);
+    color: var(--color-text-100);
+    font-family: var(--font-sans);
+    margin: 0;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  .bg-brand-bg,
+  .bg-brand-panel,
+  .bg-brand-panel-light,
+  .border-brand-border,
+  .text-slate-100,
+  .text-slate-200,
+  .text-slate-300,
+  .text-slate-400,
+  .text-slate-500 {
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-brand-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3B82F6;
+}
+
+/* Layout Grid & Sizing System */
+:root {
+  --container-max: 1280px;
+  --container-padding: 32px; /* var(--space-8) */
+
+  /* Chart/graph containers */
+  --viz-height-sm: 120px;
+  --viz-height-md: 280px;
+  --viz-height-lg: 480px;
+
+  --icon-sm: 16px;
+  --icon-md: 20px;
+
+  --avatar-size: 32px;
+  --status-dot-size: 8px;
+
+  --preview-aspect-ratio: 16 / 10;
+}
+
+.page-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Staggered Reveal Animation System */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

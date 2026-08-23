@@ -1,0 +1,24 @@
+﻿# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+
+# Raw dataset (too large, publicly available on Kaggle instead)
+data/raw/
+
+# Generated model artifacts (regenerable via scripts/ pipeline)
+data/model.pkl
+data/sentinel.db
+data/processed_transactions.csv
+data/test_features.csv
+
+# Env files (never commit secrets/local config)
+.env
+.env.local
+
+# Build output
+dist/
+build/
+
+# Editor
+.vscode/
