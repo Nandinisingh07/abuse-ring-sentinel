@@ -7,11 +7,8 @@ __pycache__/
 data/raw/
 
 # Generated model artifacts (regenerable via scripts/ pipeline)
-data/model.pkl
 data/sentinel.db
 data/processed_transactions.csv
-data/test_features.csv
-
 # Env files (never commit secrets/local config)
 .env
 .env.local
