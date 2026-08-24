@@ -274,12 +274,20 @@ export default function LandingPage({ onStart, onNavigate }: LandingPageProps) {
         <p className="text-[18px] md:text-[20px] text-slate-400 max-w-[600px] mx-auto leading-[1.5] font-sans mb-10">
           Abuse-Ring Sentinel finds accounts secretly connected through shared devices and IPs — and routes them to human review, never to auto-block.
         </p>
-        <button
-          onClick={onStart}
-          className="px-8 py-3.5 bg-brand-accent hover:bg-blue-600 text-white font-semibold rounded-lg flex items-center justify-center gap-2 transition-colors cursor-pointer text-[15px] shadow-[0_4px_16px_rgba(59,130,246,0.2)]"
-        >
-          Enter Command Center <ChevronRight className="h-4 w-4" />
-        </button>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <button
+            onClick={onStart}
+            className="w-full sm:w-auto px-8 py-3.5 bg-brand-accent hover:bg-blue-600 text-white font-semibold rounded-lg flex items-center justify-center gap-2 transition-colors cursor-pointer text-[15px] shadow-[0_4px_16px_rgba(59,130,246,0.2)] font-mono"
+          >
+            Enter Command Center <ChevronRight className="h-4 w-4" />
+          </button>
+          <a
+            href="/presentation.html"
+            className="w-full sm:w-auto px-8 py-3.5 border border-brand-border hover:bg-brand-panel-light text-slate-350 font-semibold rounded-lg flex items-center justify-center gap-2 transition-colors cursor-pointer text-[15px] font-mono"
+          >
+            View Explainer Story <ChevronRight className="h-4 w-4" />
+          </a>
+        </div>
       </div>
 
       {/* Section 2: The Explainer Line */}

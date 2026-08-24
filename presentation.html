@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abuse-Ring Sentinel — Presentation</title>
+    <script>
+      window.onerror = function(message, source, lineno, colno, error) {
+        const errorDetails = {
+          message: message || '',
+          source: source || '',
+          lineno: lineno || 0,
+          colno: colno || 0,
+          stack: error ? error.stack : ''
+        };
+        fetch('http://localhost:8080/log-browser-error', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(errorDetails)
+        }).catch(err => console.error('Failed to log error to backend', err));
+      };
+
+      window.onunhandledrejection = function(event) {
+        const errorDetails = {
+          message: 'Unhandled Promise Rejection: ' + (event.reason ? (event.reason.message || String(event.reason)) : 'Unknown reason'),
+          source: '',
+          lineno: 0,
+          colno: 0,
+          stack: event.reason && event.reason.stack ? event.reason.stack : ''
+        };
+        fetch('http://localhost:8080/log-browser-error', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(errorDetails)
+        }).catch(err => console.error('Failed to log rejection to backend', err));
+      };
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/presentation-main.tsx"></script>
+  </body>
+</html>

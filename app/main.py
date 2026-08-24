@@ -1,4 +1,4 @@
-﻿"""
+"""
 app/main.py
 FastAPI backend for Abuse-Ring Sentinel.
 """
@@ -45,6 +45,25 @@ def get_conn():
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+
+class BrowserError(BaseModel):
+    message: str
+    source: str
+    lineno: int
+    colno: int
+    stack: str | None = None
+
+
+@app.post("/log-browser-error")
+def log_browser_error(error: BrowserError):
+    with open("data/browser_error.log", "a") as f:
+        f.write(f"--- BROWSER ERROR ---\n")
+        f.write(f"Message: {error.message}\n")
+        f.write(f"Source: {error.source}\n")
+        f.write(f"Line: {error.lineno}, Col: {error.colno}\n")
+        f.write(f"Stack: {error.stack}\n\n")
+    return {"status": "logged"}
 
 
 @app.get("/accounts")
