@@ -518,12 +518,12 @@ export default function RingExplorer() {
               width={600}
               height={450}
               onClick={handleCanvasClick}
-              className="w-full h-full cursor-crosshair bg-brand-bg/20"
+              className="w-full h-full cursor-crosshair bg-[#090e16] border border-[#304A66]/50 rounded-md shadow-inner"
             />
           )}
 
           {/* Color Legend (Float) */}
-          <div className="absolute bottom-4 left-4 p-3 bg-brand-bg/90 border border-brand-border rounded flex flex-col gap-1.5 text-[10px] font-mono shadow-lg">
+          <div className="absolute bottom-4 left-4 p-3 bg-[#090e16]/95 border border-[#304A66]/40 rounded flex flex-col gap-1.5 text-[10px] font-mono shadow-lg">
             <div className="flex items-center gap-1.5">
               <span className="w-2.5 h-2.5 rounded-full bg-red-600 dark:bg-red-500 inline-block" />
               <span className="text-slate-300">HOLD</span>
@@ -562,19 +562,19 @@ export default function RingExplorer() {
 
               {/* Tabular Features */}
               <div className="space-y-2">
-                <span className="text-[10px] font-bold font-mono text-slate-500 uppercase block">Tabular Features</span>
+                <span className="text-[10px] font-bold font-mono text-slate-400 uppercase block">Tabular Features</span>
                 <div className="grid grid-cols-2 gap-2 text-xs font-mono">
                   <div className="p-2 bg-brand-bg/50 border border-brand-border rounded">
-                    <span className="block text-[8px] text-slate-500">GRAPH DEGREE</span>
-                    <span className="text-slate-300 font-semibold">{selectedNode.account_degree}</span>
+                    <span className="block text-[8px] text-slate-400">GRAPH DEGREE</span>
+                    <span className="text-slate-100 font-semibold">{selectedNode.account_degree}</span>
                   </div>
                   <div className="p-2 bg-brand-bg/50 border border-brand-border rounded">
-                    <span className="block text-[8px] text-slate-500">CLUSTER SIZE</span>
-                    <span className="text-slate-300 font-semibold">{selectedNode.cluster_size}</span>
+                    <span className="block text-[8px] text-slate-400">CLUSTER SIZE</span>
+                    <span className="text-slate-100 font-semibold">{selectedNode.cluster_size}</span>
                   </div>
                   <div className="p-2 bg-brand-bg/50 border border-brand-border rounded col-span-2">
-                    <span className="block text-[8px] text-slate-500">PURCHASE VALUE</span>
-                    <span className="text-slate-300 font-semibold">${selectedNode.purchase_value.toFixed(2)}</span>
+                    <span className="block text-[8px] text-slate-400">PURCHASE VALUE</span>
+                    <span className="text-slate-100 font-semibold">${selectedNode.purchase_value.toFixed(2)}</span>
                   </div>
                 </div>
               </div>
@@ -583,16 +583,16 @@ export default function RingExplorer() {
               {selectedNode.cluster_id !== -1 && (
                 <div className="p-3 bg-brand-bg/60 border border-brand-border rounded font-mono text-[10px] space-y-1.5">
                   <span className="text-[8px] font-bold text-brand-accent uppercase block">Shared Ring Connections</span>
-                  <div className="text-slate-300">
-                    <span className="text-slate-400">IP ADDRESS:</span> 198.51.100.{selectedNode.cluster_id % 255}
+                  <div className="text-slate-100">
+                    <span className="text-slate-300">IP ADDRESS:</span> 198.51.100.{selectedNode.cluster_id % 255}
                   </div>
-                  <div className="text-slate-300">
-                    <span className="text-slate-400">DEVICE FINGERPRINT:</span> dev_hash_{selectedNode.cluster_id}
+                  <div className="text-slate-100">
+                    <span className="text-slate-300">DEVICE FINGERPRINT:</span> dev_hash_{selectedNode.cluster_id}
                   </div>
-                  <div className="text-slate-300">
-                    <span className="text-slate-400">BILLING ADDRESS:</span> {100 + (selectedNode.cluster_id % 900)} Sentinel Way, Suite {selectedNode.cluster_id % 10}
+                  <div className="text-slate-100">
+                    <span className="text-slate-300">BILLING ADDRESS:</span> {100 + (selectedNode.cluster_id % 900)} Sentinel Way, Suite {selectedNode.cluster_id % 10}
                   </div>
-                  <p className="text-[8px] text-slate-500 mt-1.5 leading-normal">
+                  <p className="text-[8px] text-slate-400 mt-1.5 leading-normal">
                     This account is connected to {selectedNode.cluster_size - 1} other users in Ring #{selectedNode.cluster_id} due to matching network subnets and device hashes.
                   </p>
                 </div>
@@ -637,23 +637,23 @@ export default function RingExplorer() {
             <div className="space-y-4">
               <div className="border-b border-brand-border pb-3">
                 <span className="text-[10px] font-bold font-mono text-brand-accent uppercase block">Selected Cluster</span>
-                <h3 className="font-mono text-sm font-bold text-slate-200 mt-1">Cluster #{selectedCluster.cluster_id}</h3>
+                <h3 className="font-mono text-sm font-bold text-slate-100 mt-1">Cluster #{selectedCluster.cluster_id}</h3>
               </div>
 
               {/* Cluster metrics */}
               <div className="space-y-2">
-                <span className="text-[10px] font-bold font-mono text-slate-500 uppercase block">Cluster Metrics</span>
+                <span className="text-[10px] font-bold font-mono text-slate-400 uppercase block">Cluster Metrics</span>
                 <div className="grid grid-cols-2 gap-2 text-xs font-mono">
                   <div className="p-2 bg-brand-bg/50 border border-brand-border rounded">
-                    <span className="block text-[8px] text-slate-500">SIZE</span>
-                    <span className="text-slate-300 font-semibold">{selectedCluster.size} Accounts</span>
+                    <span className="block text-[8px] text-slate-400">SIZE</span>
+                    <span className="text-slate-100 font-semibold">{selectedCluster.size} Accounts</span>
                   </div>
                   <div className="p-2 bg-brand-bg/50 border border-brand-border rounded">
-                    <span className="block text-[8px] text-slate-500">SCORED MEMBERS</span>
-                    <span className="text-slate-300 font-semibold">{selectedCluster.member_count}</span>
+                    <span className="block text-[8px] text-slate-400">SCORED MEMBERS</span>
+                    <span className="text-slate-100 font-semibold">{selectedCluster.member_count}</span>
                   </div>
                   <div className="p-2 bg-brand-bg/50 border border-brand-border rounded col-span-2">
-                    <span className="block text-[8px] text-slate-500">HISTORICAL FRAUD RATE</span>
+                    <span className="block text-[8px] text-slate-400">HISTORICAL FRAUD RATE</span>
                     <span className="text-red-600 dark:text-red-400 font-semibold">{(selectedCluster.fraud_rate * 100).toFixed(1)}%</span>
                   </div>
                 </div>

@@ -2,28 +2,28 @@
 @import "tailwindcss";
 
 :root {
-  /* Razorpay Buildathon Design Tokens */
-  --bg-primary: #0A0A0B;        /* near-black, main background */
-  --bg-secondary: #131316;      /* slightly raised surface (cards) */
-  --bg-tertiary: #1C1C20;       /* hover/active surface */
-  --border-subtle: #26262B;     /* card borders, dividers */
+  /* Chic Deep Ink Navy & Carbon Black Theme */
+  --bg-primary: #141b2d;        /* deep ink navy main background */
+  --bg-secondary: #243b55;      /* rich midnight blue cards/panels */
+  --bg-tertiary: #111318;       /* active/hover slate surface (Secondary BG) */
+  --border-subtle: #304a66;     /* border slate */
 
-  /* Text */
-  --text-primary: #F5F5F7;      /* headlines, primary content */
-  --text-secondary: #A1A1AA;    /* supporting text, descriptions */
-  --text-tertiary: #6B6B71;     /* metadata, timestamps, IDs */
+  /* Text - soft white and slate grey */
+  --text-primary: #ffffff;      /* headlines (pure white) */
+  --text-secondary: #cbd5e1;    /* body text (bright slate 300) */
+  --text-tertiary: #94a3b8;     /* metadata (clear slate 400) */
 
-  /* Accent — use sparingly, like Razorpay's blue */
-  --accent: #3B82F6;
-  --accent-hover: #5B95F7;
-  --accent-muted: rgba(59, 130, 246, 0.12); /* backgrounds for accent chips */
+  /* Accent — Sky Blue */
+  --accent: #38bdf8;            /* Primary Accent: Sky Blue */
+  --accent-hover: #0ea5e9;
+  --accent-muted: rgba(56, 189, 248, 0.12);
 
-  /* Risk tiers — the ONLY other saturated colors allowed anywhere */
-  --risk-low: #22C55E;
-  --risk-review: #F59E0B;
-  --risk-hold: #EF4444;
+  /* Risk Tiers - Emerald Green, Gold, & Coral Red */
+  --risk-low: #34d399;          /* Emerald Green safe/verified green */
+  --risk-review: #fbbf24;       /* Warm gold */
+  --risk-hold: #ff6b6b;         /* Coral duplicate/risk red */
 
-  /* App Variable Mappings (Default Dark Mode) */
+  /* App Variable Mappings */
   --color-brand-bg: var(--bg-primary);
   --color-brand-panel: var(--bg-secondary);
   --color-brand-panel-light: var(--bg-tertiary);
@@ -41,11 +41,11 @@
   --color-brand-accent: var(--accent);
 
   /* Button - Dismiss (Green) / Success */
-  --color-btn-dismiss-bg: rgba(34, 197, 94, 0.08);
-  --color-btn-dismiss-border: rgba(34, 197, 94, 0.2);
-  --color-btn-dismiss-text: var(--risk-low);
-  --color-btn-dismiss-hover-bg: rgba(34, 197, 94, 0.15);
-  --color-btn-dismiss-hover-text: var(--risk-low);
+  --color-btn-dismiss-bg: rgba(52, 211, 153, 0.08);
+  --color-btn-dismiss-border: rgba(52, 211, 153, 0.18);
+  --color-btn-dismiss-text: #34d399;
+  --color-btn-dismiss-hover-bg: rgba(52, 211, 153, 0.15);
+  --color-btn-dismiss-hover-text: #34d399;
 
   /* Button - Approve (Neutral) / Info */
   --color-btn-approve-bg: var(--bg-secondary);
@@ -55,23 +55,57 @@
   --color-btn-approve-hover-text: var(--text-primary);
 
   /* Button - Escalate (Amber) / Warning */
-  --color-btn-escalate-bg: rgba(245, 158, 11, 0.08);
-  --color-btn-escalate-border: rgba(245, 158, 11, 0.2);
-  --color-btn-escalate-text: var(--risk-review);
-  --color-btn-escalate-hover-bg: rgba(245, 158, 11, 0.15);
-  --color-btn-escalate-hover-text: var(--risk-review);
+  --color-btn-escalate-bg: rgba(251, 191, 36, 0.08);
+  --color-btn-escalate-border: rgba(251, 191, 36, 0.18);
+  --color-btn-escalate-text: #fbbf24;
+  --color-btn-escalate-hover-bg: rgba(251, 191, 36, 0.15);
+  --color-btn-escalate-hover-text: #fbbf24;
 
   /* Status - Error (Red) */
-  --color-status-error-bg: rgba(239, 68, 68, 0.08);
-  --color-status-error-border: rgba(239, 68, 68, 0.2);
-  --color-status-error-text: var(--risk-hold);
+  --color-status-error-bg: rgba(255, 107, 107, 0.08);
+  --color-status-error-border: rgba(255, 107, 107, 0.18);
+  --color-status-error-text: #ff6b6b;
 
   /* Pipeline Diagram Colors */
-  --color-pipeline-purple: #C084FC;
+  --color-pipeline-purple: #8e80c6;
   --color-pipeline-green: var(--risk-low);
 }
 
+/* Redefine variables for dark Carbon Black sidebar & header and its contents */
+aside,
+aside *,
+header,
+header * {
+  --bg-primary: #0a0b0d !important;
+  --bg-secondary: #111318 !important;      /* Carbon Black */
+  --bg-tertiary: #243b55 !important;       /* Rich Midnight Blue */
+  --border-subtle: #304a66 !important;     /* border slate */
 
+  --text-primary: #ffffff !important;      /* text color */
+  --text-secondary: #cbd5e1 !important;    /* slate 300 */
+  --text-tertiary: #94a3b8 !important;     /* slate 400 */
+
+  --accent: #38bdf8 !important;            /* Sky Blue Accent */
+  --accent-hover: #0ea5e9 !important;
+
+  --color-text-100: var(--text-primary) !important;
+  --color-text-200: var(--text-primary) !important;
+  --color-text-300: var(--text-secondary) !important;
+  --color-text-400: var(--text-secondary) !important;
+  --color-text-500: var(--text-tertiary) !important;
+
+  --color-slate-100: var(--text-primary) !important;
+  --color-slate-200: var(--text-primary) !important;
+  --color-slate-300: var(--text-secondary) !important;
+  --color-slate-400: var(--text-secondary) !important;
+  --color-slate-500: var(--text-tertiary) !important;
+  
+  --color-brand-bg: var(--bg-primary) !important;
+  --color-brand-panel: var(--bg-secondary) !important;
+  --color-brand-panel-light: var(--bg-tertiary) !important;
+  --color-brand-border: var(--border-subtle) !important;
+  --color-brand-accent: var(--accent) !important;
+}
 
 @theme {
   --color-brand-bg: var(--color-brand-bg);
@@ -125,6 +159,11 @@
 @layer base {
   body {
     background-color: var(--color-brand-bg);
+    background-image: 
+      radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 0% 100%, rgba(52, 211, 153, 0.04) 0%, transparent 40%),
+      radial-gradient(#243b55 1.5px, transparent 1.5px);
+    background-size: 100% 100%, 100% 100%, 24px 24px;
     color: var(--color-text-100);
     font-family: var(--font-sans);
     margin: 0;
@@ -144,6 +183,34 @@
   }
 }
 
+/* Glassmorphism sidebar & header */
+aside {
+  background-color: #111318 !important;     /* Carbon Black sidebar */
+  border-right: 1px solid var(--border-subtle) !important;
+  box-shadow: 2px 0 16px rgba(17, 19, 24, 0.3) !important;
+}
+
+aside nav button {
+  border-left: 3px solid transparent !important;
+  transition: all 0.2s ease !important;
+}
+aside nav button[class*="bg-brand-panel-light"] {
+  background-color: var(--bg-tertiary) !important;
+  border-left-color: var(--accent) !important;
+  color: var(--text-primary) !important;
+}
+aside nav button:hover {
+  background-color: rgba(56, 189, 248, 0.04) !important;
+  color: var(--accent) !important;
+  transform: translateX(3px) !important;
+}
+
+header {
+  background-color: #111318 !important;     /* Carbon Black header background */
+  backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 var(--border-subtle), 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
 /* Custom scrollbars */
 ::-webkit-scrollbar {
   width: 6px;
@@ -157,25 +224,164 @@
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3B82F6;
+  background: var(--color-brand-accent);
+}
+
+/* Vibrant primary buttons with soft drop shadow */
+.bg-brand-accent,
+button[class*="bg-brand-accent"],
+button[class*="bg-blue-600"] {
+  background: linear-gradient(135deg, #7dd3fc 0%, #38bdf8 100%) !important;
+  color: #0f172a !important;
+  font-weight: 600 !important;
+  border: 1px solid #0ea5e9 !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(56, 189, 248, 0.15) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  border-radius: 8px !important;
+}
+
+.bg-brand-accent:hover,
+button[class*="bg-brand-accent"]:hover,
+button[class*="bg-blue-600"]:hover {
+  background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 8px 20px rgba(56, 189, 248, 0.25) !important;
+  transform: translateY(-1.5px) !important;
+}
+
+/* Premium Card Design with Depth */
+.shadow-card,
+[class*="bg-brand-panel"],
+.bg-brand-panel {
+  background-color: var(--bg-secondary) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 16px !important;
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.05), 
+    0 4px 16px rgba(15, 23, 42, 0.2), 
+    inset 0 1px 0 rgba(255, 255, 255, 0.03) !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.shadow-card:hover,
+[class*="bg-brand-panel"]:hover,
+.bg-brand-panel:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+  box-shadow: 
+    0 16px 40px rgba(56, 189, 248, 0.08), 
+    0 4px 12px rgba(0, 0, 0, 0.05), 
+    inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Disable scale transitions on non-interactive full size panels */
+aside[class*="bg-brand-panel"]:hover,
+.relative.w-full.max-w-lg.bg-brand-panel:hover {
+  transform: none !important;
+  border-color: var(--border-subtle) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Risk Badges and Chips styling */
+span[class*="bg-green-500\/10"],
+span[class*="bg-emerald-500\/10"] {
+  background-color: rgba(52, 211, 153, 0.08) !important;
+  color: #34d399 !important;
+  border: 1px solid rgba(52, 211, 153, 0.18) !important;
+  font-weight: 600;
+}
+span[class*="bg-orange-500\/10"] {
+  background-color: rgba(251, 191, 36, 0.08) !important;
+  color: #fbbf24 !important;
+  border: 1px solid rgba(251, 191, 36, 0.18) !important;
+  font-weight: 600;
+}
+span[class*="bg-red-500\/10"] {
+  background-color: rgba(255, 107, 107, 0.08) !important;
+  color: #ff6b6b !important;
+  border: 1px solid rgba(255, 107, 107, 0.18) !important;
+  font-weight: 600;
+}
+
+/* Improve contrast and readability of all secondary/small text classes on dark background */
+.text-slate-400,
+.text-slate-455,
+.text-slate-355,
+[class*="text-slate-400"],
+span[class*="text-[13px]"],
+span[class*="text-[12px]"],
+span[class*="text-xs"],
+p[class*="text-sm"],
+p[class*="text-[13px]"] {
+  color: #cbd5e1 !important; /* brighter, crisp slate-grey */
+}
+.text-slate-500,
+[class*="text-slate-500"] {
+  color: #94a3b8 !important; /* clear slate-blue */
+}
+
+
+/* Table clean editorial styling */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+th {
+  background-color: #0c0d12 !important;            /* matching deep carbon black header background */
+  color: #a8b6c8 !important;
+  font-weight: 600 !important;
+  border-bottom: 2px solid #304a66 !important;
+}
+td {
+  border-bottom: 1px solid #0c0d12 !important;
+}
+tr:hover td {
+  background-color: #172433 !important;
+}
+
+/* Range Inputs & Inputs UI Tuning */
+input[type="range"]::-webkit-slider-thumb {
+  background: var(--accent) !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 2px 6px rgba(56, 189, 248, 0.3) !important;
+  transition: transform 0.1s ease;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2) !important;
+}
+select {
+  border-radius: 8px !important;
+  padding: 6px 12px !important;
+  background-color: var(--bg-secondary) !important;
+  border: 1px solid var(--border-subtle) !important;
+  color: var(--text-primary) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+  cursor: pointer !important;
+  transition: border-color 0.2s;
+}
+select:focus {
+  border-color: var(--accent) !important;
+  outline: none !important;
+}
+
+/* Heading Editorial Gradient Effects */
+.page-container h1, 
+.page-container h2 {
+  background: linear-gradient(135deg, #f8fafc 30%, #38bdf8 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
 }
 
 /* Layout Grid & Sizing System */
 :root {
   --container-max: 1280px;
-  --container-padding: 32px; /* var(--space-8) */
-
-  /* Chart/graph containers */
+  --container-padding: 32px;
   --viz-height-sm: 120px;
   --viz-height-md: 280px;
   --viz-height-lg: 480px;
-
   --icon-sm: 16px;
   --icon-md: 20px;
-
   --avatar-size: 32px;
   --status-dot-size: 8px;
-
   --preview-aspect-ratio: 16 / 10;
 }
 

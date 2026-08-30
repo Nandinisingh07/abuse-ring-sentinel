@@ -118,15 +118,15 @@ export default function ModelInsights() {
             <p className="text-[13px] text-slate-400 mb-6 font-sans">
               Evaluated on the held-out temporal split. Hover over the curve points to check metrics at different thresholds.
             </p>
-            <div className="relative flex justify-center bg-brand-bg/40 p-4 border border-brand-border rounded">
+            <div className="relative flex justify-center bg-[#090e16] p-4 border border-[#304A66]/60 rounded shadow-inner">
               <svg width={width} height={height} className="overflow-visible">
-                <line x1={padding} y1={padding} x2={padding + chartWidth} y2={padding} stroke="var(--color-brand-border)" strokeDasharray="2" />
-                <line x1={padding} y1={padding + chartHeight} x2={padding + chartWidth} y2={padding + chartHeight} stroke="var(--color-brand-border)" />
-                <line x1={padding} y1={padding} x2={padding} y2={padding + chartHeight} stroke="var(--color-brand-border)" />
-                <line x1={padding + chartWidth} y1={padding} x2={padding + chartWidth} y2={padding + chartHeight} stroke="var(--color-brand-border)" strokeDasharray="2" />
-                <text x={padding + chartWidth / 2} y={height - 5} fill="#64748B" fontSize="8" textAnchor="middle" fontFamily="JetBrains Mono">RECALL</text>
-                <text x={10} y={height / 2} fill="#64748B" fontSize="8" textAnchor="middle" transform={`rotate(-90 10 ${height / 2})`} fontFamily="JetBrains Mono">PRECISION</text>
-                {pathD && <path d={pathD} fill="none" stroke="#3B82F6" strokeWidth="2.5" />}
+                <line x1={padding} y1={padding} x2={padding + chartWidth} y2={padding} stroke="#304A66" strokeDasharray="2" />
+                <line x1={padding} y1={padding + chartHeight} x2={padding + chartWidth} y2={padding + chartHeight} stroke="#304A66" />
+                <line x1={padding} y1={padding} x2={padding} y2={padding + chartHeight} stroke="#304A66" />
+                <line x1={padding + chartWidth} y1={padding} x2={padding + chartWidth} y2={padding + chartHeight} stroke="#304A66" strokeDasharray="2" />
+                <text x={padding + chartWidth / 2} y={height - 5} fill="#A8B6C8" fontSize="8" textAnchor="middle" fontFamily="JetBrains Mono">RECALL</text>
+                <text x={10} y={height / 2} fill="#A8B6C8" fontSize="8" textAnchor="middle" transform={`rotate(-90 10 ${height / 2})`} fontFamily="JetBrains Mono">PRECISION</text>
+                {pathD && <path d={pathD} fill="none" stroke="#38BDF8" strokeWidth="2.5" />}
                 {pr_curve && pr_curve.map((pt: any, idx: number) => {
                   const { x, y } = getCoords(pt.recall, pt.precision);
                   return (
@@ -135,7 +135,7 @@ export default function ModelInsights() {
                       cx={x}
                       cy={y}
                       r="4"
-                      className="fill-brand-accent hover:fill-risk-hold cursor-pointer transition-colors"
+                      className="fill-[#7BA7C9] hover:fill-[#FF6B6B] cursor-pointer transition-colors"
                       onMouseEnter={() => setHoveredPoint(pt)}
                       onMouseLeave={() => setHoveredPoint(null)}
                     />

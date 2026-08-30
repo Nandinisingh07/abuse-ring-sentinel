@@ -180,30 +180,30 @@ export default function CostSimulator() {
             </h3>
 
             {/* Cost curve chart */}
-            <div className="flex justify-center bg-brand-bg/40 p-4 border border-brand-border rounded relative">
+            <div className="flex justify-center bg-[#090e16] p-4 border border-[#304A66]/60 rounded relative shadow-inner">
               <svg width={width} height={height} className="overflow-visible">
                 {/* Horizontal grid lines */}
-                <line x1={padding} y1={padding} x2={padding + chartWidth} y2={padding} stroke="var(--color-brand-border)" strokeDasharray="2" />
-                <line x1={padding} y1={padding + chartHeight} x2={padding + chartWidth} y2={padding + chartHeight} stroke="var(--color-brand-border)" />
+                <line x1={padding} y1={padding} x2={padding + chartWidth} y2={padding} stroke="#304A66" strokeDasharray="2" />
+                <line x1={padding} y1={padding + chartHeight} x2={padding + chartWidth} y2={padding + chartHeight} stroke="#304A66" />
 
                 {/* Axes Label */}
-                <text x={padding + chartWidth / 2} y={height - 5} fill="#64748B" fontSize="8" textAnchor="middle" fontFamily="JetBrains Mono">THRESHOLD</text>
-                <text x={10} y={height / 2} fill="#64748B" fontSize="8" textAnchor="middle" transform={`rotate(-90 10 ${height / 2})`} fontFamily="JetBrains Mono">EXPECTED COST</text>
+                <text x={padding + chartWidth / 2} y={height - 5} fill="#A8B6C8" fontSize="8" textAnchor="middle" fontFamily="JetBrains Mono">THRESHOLD</text>
+                <text x={10} y={height / 2} fill="#A8B6C8" fontSize="8" textAnchor="middle" transform={`rotate(-90 10 ${height / 2})`} fontFamily="JetBrains Mono">EXPECTED COST</text>
 
                 {/* Total Cost Line Path */}
                 {pathD && (
-                  <path d={pathD} fill="none" stroke="#475569" strokeWidth="2" />
+                  <path d={pathD} fill="none" stroke="#7BA7C9" strokeWidth="2.5" />
                 )}
 
                 {/* Draw Optimal Point */}
-                <circle cx={optCoord.x} cy={optCoord.y} r="5" fill="#10B981" />
-                <line x1={optCoord.x} y1={padding} x2={optCoord.x} y2={padding + chartHeight} stroke="#10B981" strokeDasharray="3" strokeWidth="1" />
-                <text x={optCoord.x} y={optCoord.y - 10} fill="#10B981" fontSize="7" textAnchor="middle" fontFamily="JetBrains Mono">OPT ({optimal_threshold.toFixed(2)})</text>
+                <circle cx={optCoord.x} cy={optCoord.y} r="5" fill="#34D399" />
+                <line x1={optCoord.x} y1={padding} x2={optCoord.x} y2={padding + chartHeight} stroke="#34D399" strokeDasharray="3" strokeWidth="1" />
+                <text x={optCoord.x} y={optCoord.y - 10} fill="#34D399" fontSize="7" textAnchor="middle" fontFamily="JetBrains Mono">OPT ({optimal_threshold.toFixed(2)})</text>
 
                 {/* Draw Current Selected Point */}
-                <circle cx={currCoord.x} cy={currCoord.y} r="6" fill="#3B82F6" stroke="#0B0F14" strokeWidth="1.5" />
-                <line x1={currCoord.x} y1={padding} x2={currCoord.x} y2={padding + chartHeight} stroke="#3B82F6" strokeDasharray="2" strokeWidth="1" />
-                <text x={currCoord.x} y={currCoord.y - 12} fill="#3B82F6" fontSize="7" textAnchor="middle" fontFamily="JetBrains Mono">CURR ({current.threshold.toFixed(2)})</text>
+                <circle cx={currCoord.x} cy={currCoord.y} r="6" fill="#38BDF8" stroke="#090e16" strokeWidth="1.5" />
+                <line x1={currCoord.x} y1={padding} x2={currCoord.x} y2={padding + chartHeight} stroke="#38BDF8" strokeDasharray="2" strokeWidth="1" />
+                <text x={currCoord.x} y={currCoord.y - 12} fill="#38BDF8" fontSize="7" textAnchor="middle" fontFamily="JetBrains Mono">CURR ({current.threshold.toFixed(2)})</text>
               </svg>
             </div>
           </div>
