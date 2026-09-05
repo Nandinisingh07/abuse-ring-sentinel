@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assets/cofraud-banner.svg" alt="CoFraud — Graph-Native Fraud Ring Detection" width="100%" />
+
 # 🛡️ COFRAUD
 
 ### Graph-Native Fraud Ring Detection with Cost-Aware, Human-in-the-Loop Decisioning
