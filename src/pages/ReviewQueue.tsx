@@ -206,6 +206,37 @@ export default function ReviewQueue({ selectedAccountId, onClearSelectedAccount 
                   </div>
                 </div>
 
+                {/* Reviewer Decisions Panel (Defensive Action Only) - Placed Prominently at Top */}
+                <div className="border border-brand-border bg-brand-bg/40 rounded-lg p-3.5 mb-5 shadow-sm">
+                  <span className="text-[13px] font-bold font-mono text-slate-400 uppercase block mb-2.5 text-center">Reviewer Decisioning</span>
+                  <div className="grid grid-cols-3 gap-2">
+                    <button
+                      onClick={() => handleAction('dismiss')}
+                      className="py-2.5 bg-btn-dismiss-bg border border-btn-dismiss-border hover:bg-btn-dismiss-hover-bg text-btn-dismiss-text hover:text-btn-dismiss-hover-text rounded text-sm font-mono font-bold cursor-pointer transition-colors text-center"
+                      title="Clear flags; mark as False Positive"
+                    >
+                      DISMISS
+                    </button>
+                    <button
+                      onClick={() => handleAction('approve')}
+                      className="py-2.5 bg-btn-approve-bg border border-btn-approve-border hover:bg-btn-approve-hover-bg text-btn-approve-text hover:text-btn-approve-hover-text rounded text-sm font-mono font-bold cursor-pointer transition-colors text-center"
+                      title="Allow transaction to proceed"
+                    >
+                      APPROVE
+                    </button>
+                    <button
+                      onClick={() => handleAction('escalate')}
+                      className="py-2.5 bg-btn-escalate-bg border border-btn-escalate-border hover:bg-btn-escalate-hover-bg text-btn-escalate-text hover:text-btn-escalate-hover-text rounded text-sm font-mono font-bold cursor-pointer transition-colors text-center"
+                      title="Escalate to Senior Risk Review"
+                    >
+                      ESCALATE
+                    </button>
+                  </div>
+                  <div className="text-[11px] text-slate-500 font-mono text-center mt-2">
+                    WARNING: Action is irreversible. All updates append write-only rows to the Audit Log.
+                  </div>
+                </div>
+
                 {/* Tabular summary */}
                 <div className="mb-4">
                   <span className="text-[13px] font-bold font-mono text-slate-500 uppercase block mb-1.5">Tabular Features</span>
@@ -280,37 +311,6 @@ export default function ReviewQueue({ selectedAccountId, onClearSelectedAccount 
                     </div>
                   </div>
                 )}
-              </div>
-
-              {/* Reviewer Decisions Panel (Defensive Action Only) */}
-              <div className="border-t border-brand-border pt-4 mt-6">
-                <span className="text-[13px] font-bold font-mono text-slate-500 uppercase block mb-3 text-center">Reviewer Decisioning</span>
-                <div className="grid grid-cols-3 gap-2">
-                  <button
-                    onClick={() => handleAction('dismiss')}
-                    className="py-2.5 bg-btn-dismiss-bg border border-btn-dismiss-border hover:bg-btn-dismiss-hover-bg text-btn-dismiss-text hover:text-btn-dismiss-hover-text rounded text-sm font-mono font-bold cursor-pointer transition-colors text-center"
-                    title="Clear flags; mark as False Positive"
-                  >
-                    DISMISS
-                  </button>
-                  <button
-                    onClick={() => handleAction('approve')}
-                    className="py-2.5 bg-btn-approve-bg border border-btn-approve-border hover:bg-btn-approve-hover-bg text-btn-approve-text hover:text-btn-approve-hover-text rounded text-sm font-mono font-bold cursor-pointer transition-colors text-center"
-                    title="Allow transaction to proceed"
-                  >
-                    APPROVE
-                  </button>
-                  <button
-                    onClick={() => handleAction('escalate')}
-                    className="py-2.5 bg-btn-escalate-bg border border-btn-escalate-border hover:bg-btn-escalate-hover-bg text-btn-escalate-text hover:text-btn-escalate-hover-text rounded text-sm font-mono font-bold cursor-pointer transition-colors text-center"
-                    title="Escalate to Senior Risk Review"
-                  >
-                    ESCALATE
-                  </button>
-                </div>
-                <div className="text-[11px] text-slate-500 font-mono text-center mt-2.5">
-                  WARNING: Action is irreversible. All updates append write-only rows to the Audit Log.
-                </div>
               </div>
             </div>
           ) : (
