@@ -300,7 +300,60 @@ flowchart TB
 | 💰 **Cost Simulator** | Drag the decision threshold, watch false-positive vs. false-negative cost trade off live |
 | 📜 **Audit Log** | Every reviewer action, searchable and exportable to CSV |
 
-> 🖼️ *Add a screenshot or short GIF of each page here — this is the single highest-leverage addition you can make before submitting.*
+### Screenshots
+
+<table>
+<tr>
+<td width="50%">
+
+**Landing Page**
+<img src="docs/screenshots/landing-page.png" alt="CoFraud Landing Page" width="100%" />
+
+</td>
+<td width="50%">
+
+**Command Center**
+<img src="docs/screenshots/command-center.png" alt="Command Center" width="100%" />
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+**Ring Explorer**
+<img src="docs/screenshots/ring-explorer.png" alt="Ring Explorer" width="100%" />
+
+</td>
+<td width="50%">
+
+**Review Queue**
+<img src="docs/screenshots/review-queue.png" alt="Review Queue" width="100%" />
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+**Model Insights**
+<img src="docs/screenshots/model-insights.png" alt="Model Insights" width="100%" />
+
+</td>
+<td width="50%">
+
+**Cost Simulator**
+<img src="docs/screenshots/cost-simulator.png" alt="Cost Simulator" width="100%" />
+
+</td>
+</tr>
+<tr>
+<td width="100%" colspan="2">
+
+**Audit Log**
+<img src="docs/screenshots/audit-log.png" alt="Audit Log" width="100%" />
+
+</td>
+</tr>
+</table>
 
 ---
 
