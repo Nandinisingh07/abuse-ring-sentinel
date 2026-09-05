@@ -1,32 +1,37 @@
-# React + TypeScript + Vite
+# CoFraud — Enterprise Coordinated Fraud Intelligence
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https.python.org)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-green.svg)](https://fastapi.tiangolo.com)
+[![React 19](https://img.shields.io/badge/React-19-blue.svg)](https://react.dev)
 
-Currently, two official plugins are available:
+CoFraud is an advanced fraud detection and graph-intelligence platform designed to detect coordinated fraud rings and account sharing patterns across merchant transaction streams. By fusing graph network attributes with temporal transaction signals, CoFraud identifies suspicious clusters and routes them to human reviewers with SHAP risk factor breakdowns.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Coordinated Ring Explorer**: Dynamic 2D graph network visualization connecting accounts with shared device fingerprints, IP subnets, and billing addresses.
+- **Explainable AI (SHAP)**: High-transparency risk breakdowns showing exact positive and negative SHAP feature contributions for every flagged account.
+- **Human-in-the-Loop Triage**: Strictly defense-only workflow routing flagged transactions to manual review (Approve, Escalate, Dismiss) without automated blocking.
+- **Financial Cost Simulator**: Interactive threshold optimization allowing risk managers to balance chargeback losses against manual review operational costs.
 
-## Expanding the Oxlint configuration
+---
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Getting Started
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+### Prerequisites
+- Node.js (v18+)
+- Python (v3.10+)
+
+### Backend Setup
+```bash
+pip install -r requirements.txt
+python -m uvicorn app.main:app --port 8080
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+### Frontend Setup
+```bash
+npm install
+npm run dev
+```

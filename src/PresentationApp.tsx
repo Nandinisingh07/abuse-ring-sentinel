@@ -393,7 +393,7 @@ function SystemSimulation() {
     { label: "Network Partitioning", desc: "Louvain community modularity updated", log: "Louvain Community: Ring #42 updated. Modularity index 0.65, member count 9." },
     { label: "Risk Scored", desc: "XGBoost continuous risk scored", log: "XGBoost Model: Scored risk = 0.892 (Primary driver: Ring #42 historical fraud history)" },
     { label: "Alert Generated", desc: "Optimal threshold classification set", log: "Classifier: Risk score 0.892 exceeds threshold 0.26. Routed to REVIEW." },
-    { label: "Command Center Dispatched", desc: "Review queue updated with SHAP details", log: "Sentinel Core: Flagged card dispatched to Review Queue for human triage." }
+    { label: "Command Center Dispatched", desc: "Review queue updated with SHAP details", log: "CoFraud Core: Flagged card dispatched to Review Queue for human triage." }
   ];
 
   const startSimulation = () => {
@@ -579,7 +579,7 @@ function InteractiveArchitecture() {
     { id: 5, label: "RISK ENGINE", x: 400, y: 325, desc: "XGBoost continuous risk probability scorer [0.0 - 1.0]. Integrates local transaction details with graph features." },
     { id: 6, label: "ALERTS", x: 280, y: 400, desc: "Optimal cost-based threshold classification. Categorizes accounts into LOW, REVIEW, and HOLD risk tiers." },
     { id: 7, label: "RANKING", x: 520, y: 400, desc: "Severity ranking queue. Sorts pending reviews based on risk level and purchase value to maximize review efficiency." },
-    { id: 8, label: "COMMAND CENTER", x: 400, y: 475, desc: "Sentinel Core Human Triage console. Evaluates details, checks SHAP explainers, and logs action records to the audit log." }
+    { id: 8, label: "COMMAND CENTER", x: 400, y: 475, desc: "CoFraud Core Human Triage console. Evaluates details, checks SHAP explainers, and logs action records to the audit log." }
   ];
 
   const connections: Connection[] = [
@@ -596,7 +596,7 @@ function InteractiveArchitecture() {
   ];
 
   const nodeDetails: Record<number, NodeDetail> = {
-    0: { title: "Raw Transaction Ingest", input: "Merchant webhooks & payment data", output: "SQLite transaction records", why: "Forms the raw temporal database for Sentinel's pattern recognition." },
+    0: { title: "Raw Transaction Ingest", input: "Merchant webhooks & payment data", output: "SQLite transaction records", why: "Forms the raw temporal database for CoFraud's pattern recognition." },
     1: { title: "Feature Pipeline", input: "Structured transaction columns", output: "Tabular features + Graph Modularities", why: "Ensures network topology metrics are fed alongside transactional values." },
     2: { title: "Entity Extraction", input: "SQLite transaction tuples", output: "Indexed device & IP fingerprints", why: "Extracts primary identification nodes for graph connection creation." },
     3: { title: "Bipartite Linkages", input: "Identity node attributes", output: "Bipartite device-IP shared edges", why: "Builds connection links showing which distinct accounts share hardware details." },
@@ -604,7 +604,7 @@ function InteractiveArchitecture() {
     5: { title: "XGBoost Classifier Scorer", input: "Local metadata + Global ring properties", output: "Continuous risk probability [0.0 - 1.0]", why: "Fuses local transaction details with graph features to compute precise threat scores." },
     6: { title: "Threshold Classifier", input: "XGBoost continuous risk score", output: "LOW, REVIEW, or HOLD risk tiers", why: "Splits probability ranges to group accounts based on optimal cost-model thresholds (0.26)." },
     7: { title: "Severity Queue Ranking", input: "Classified account list", output: "Ordered pending review items", why: "Ensures investigators prioritize high-value/high-risk anomalies, minimizing fraud exposure." },
-    8: { title: "Sentinel Human Review Console", input: "Ordered review queue", output: "Approve, Escalate, or Dismiss actions logged to audit trail", why: "Fosters human accountability over payment routing. The system strictly disables auto-blocking." }
+    8: { title: "CoFraud Human Review Console", input: "Ordered review queue", output: "Approve, Escalate, or Dismiss actions logged to audit trail", why: "Fosters human accountability over payment routing. The system strictly disables auto-blocking." }
   };
 
   const getPathClass = (conn: Connection) => {
@@ -828,7 +828,7 @@ export default function PresentationApp() {
           <div className="flex items-center gap-2">
             <ShieldCheck className="h-5 w-5 text-brand-accent animate-pulse" />
             <span className="font-mono font-bold tracking-wider text-slate-100 text-[13px] uppercase">
-              Sentinel Presentation
+              CoFraud Presentation
             </span>
           </div>
           <a
@@ -850,7 +850,7 @@ export default function PresentationApp() {
           </span>
           <h1 className="text-[40px] md:text-[58px] font-extrabold text-slate-100 leading-[1.1] tracking-tight font-sans">
             Fraud rings hide in plain sight. <br className="hidden md:inline" />
-            Sentinel uncovers coordinated abuse.
+            CoFraud uncovers coordinated abuse.
           </h1>
           <p className="text-base md:text-lg text-slate-400 max-w-[620px] mx-auto leading-relaxed">
             Traditional systems inspect transactions individually, missing the coordinated networks hiding behind shared devices, IPs, and address combinations.
@@ -879,7 +879,7 @@ export default function PresentationApp() {
               CORE SYSTEM CONCEPT
             </span>
             <h2 className="text-[28px] font-extrabold text-slate-100 tracking-tight font-sans">
-              Discover the Sentinel pipeline logic
+              Discover the CoFraud pipeline logic
             </h2>
             <p className="text-sm text-slate-400 leading-relaxed font-sans">
               Click the reveal cards below to flip and inspect the system objectives, data inputs, AI scoring mechanics, and manual review routing.
@@ -889,7 +889,7 @@ export default function PresentationApp() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal" style={{ transitionDelay: '100ms' }}>
             <RevealCard 
               title="CARD 01: THE PROBLEM"
-              question="What is the primary vulnerability Sentinel addresses?"
+              question="What is the primary vulnerability CoFraud addresses?"
               answer="Coordinated fraud rings. Bad actors distribute attacks across multiple separate accounts using shared hardware devices and IP subnets to bypass single-velocity transaction filters."
               details="Vulnerability: Individual reviews miss the connection."
               accentColor="blue"
@@ -925,7 +925,7 @@ export default function PresentationApp() {
             <RevealCard 
               title="CARD 06: HUMAN CONTROL"
               question="What happens once coordination is flagged?"
-              answer="Routed to Review Queue. Decisions are kept strictly manual (Approve, Escalate, Dismiss) and logged. Sentinel has absolutely zero automated block functionality."
+              answer="Routed to Review Queue. Decisions are kept strictly manual (Approve, Escalate, Dismiss) and logged. CoFraud has absolutely zero automated block functionality."
               details="Policy: 100% human-in-the-loop compliance."
               accentColor="cyan"
             />
@@ -1018,7 +1018,7 @@ export default function PresentationApp() {
           <div className="p-4 bg-brand-panel/30 border border-brand-border/60 rounded-lg text-xs leading-relaxed space-y-3 reveal" style={{ transitionDelay: '150ms' }}>
             <span className="font-bold text-slate-350 block font-mono">No Future Data Leakage</span>
             <p className="text-slate-450">
-              In fraud research, using random train-test splits creates leakage (the graph links transactions across time, giving the model future knowledge). Sentinel is split purely on time (Day 45 boundary). Training features never incorporate subsequent relations, simulating actual deployment conditions.
+              In fraud research, using random train-test splits creates leakage (the graph links transactions across time, giving the model future knowledge). CoFraud is split purely on time (Day 45 boundary). Training features never incorporate subsequent relations, simulating actual deployment conditions.
             </p>
           </div>
 
@@ -1165,7 +1165,7 @@ export default function PresentationApp() {
               AI Risk Manager Track (Track 02)
             </span>
             <p className="text-slate-400 max-w-[580px] mx-auto text-sm leading-relaxed">
-              Abuse-Ring Sentinel brings together transaction intelligence, network relationships, explainable AI, and human judgment to help reviewers see coordinated risk that individual transactions can hide.
+              CoFraud brings together transaction intelligence, network relationships, explainable AI, and human judgment to help reviewers see coordinated risk that individual transactions can hide.
             </p>
           </div>
 
@@ -1187,7 +1187,7 @@ export default function PresentationApp() {
             </a>
             <button 
               onClick={() => {
-                alert("Opening original extracted proposal document: Abuse_Ring_Sentinel_Project_Proposal");
+                alert("Opening original extracted proposal document: CoFraud_Project_Proposal");
               }} 
               className="flex-1 px-5 py-3 border border-brand-border hover:bg-brand-panel-light text-slate-350 font-semibold rounded-lg flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
             >

@@ -1,4 +1,4 @@
-﻿import {
+import {
   AccountSchema,
   ClusterSchema,
   ClusterDetailSchema,
@@ -14,12 +14,30 @@ export const BACKEND_URL =
 
 export class BackendOfflineError extends Error {
   constructor(endpoint: string) {
-    super(`Cannot reach Sentinel API at ${BACKEND_URL}${endpoint}. Is the backend running?`);
+    super(`Cannot reach CoFraud API at ${BACKEND_URL}${endpoint}. Is the backend running?`);
     this.name = "BackendOfflineError";
   }
 }
 
+const CACHE_TTL_MS = 15000;
+interface CacheEntry {
+  timestamp: number;
+  data: any;
+}
+const cache = new Map<string, CacheEntry>();
+
 async function apiCall<T>(endpoint: string, options?: RequestInit): Promise<T> {
+  const method = (options?.method || 'GET').toUpperCase();
+
+  if (method !== 'GET') {
+    cache.clear();
+  } else {
+    const cached = cache.get(endpoint);
+    if (cached && Date.now() - cached.timestamp < CACHE_TTL_MS) {
+      return cached.data as T;
+    }
+  }
+
   let response: Response;
   try {
     response = await fetch(`${BACKEND_URL}${endpoint}`, {
@@ -36,8 +54,13 @@ async function apiCall<T>(endpoint: string, options?: RequestInit): Promise<T> {
     const body = await response.text().catch(() => "");
     throw new Error(`HTTP ${response.status} on ${endpoint}: ${body}`);
   }
-  return response.json();
+  const data = await response.json();
+  if (method === 'GET') {
+    cache.set(endpoint, { timestamp: Date.now(), data });
+  }
+  return data;
 }
+
 
 export const api = {
   getAccounts: async (

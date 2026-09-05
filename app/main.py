@@ -1,6 +1,6 @@
 """
 app/main.py
-FastAPI backend for Abuse-Ring Sentinel.
+FastAPI backend for CoFraud.
 """
 
 import csv
@@ -19,7 +19,7 @@ EVAL_PATH = Path("data/evaluation_results.json")
 SHAP_PATH = Path("data/shap_explanations.json")
 COST_PATH = Path("data/cost_curve.json")
 
-app = FastAPI(title="Abuse-Ring Sentinel API")
+app = FastAPI(title="CoFraud API")
 
 app.add_middleware(
     CORSMiddleware,

@@ -14,7 +14,7 @@ export default function SettingsPage({ onNavigateToSimulator }: SettingsProps) {
           <Settings className="h-6 w-6 text-brand-accent" /> System Settings & Docs
         </h1>
         <p className="text-sm text-slate-400 font-sans mt-1">
-          Operational configurations and documentation for the Abuse-Ring Sentinel.
+          Operational configurations and documentation for CoFraud.
         </p>
       </div>
 
@@ -62,32 +62,32 @@ export default function SettingsPage({ onNavigateToSimulator }: SettingsProps) {
                 <Cpu className="h-4 w-4" /> Bipartite Graph Fusion
               </h4>
               <p className="text-slate-400">
-                The core differentiator of **Abuse-Ring Sentinel** is its integration of graph features into standard tabular transactions. We construct a bipartite network linking accounts (nodes) via shared elements (edges) representing device fingerprint hashes, IP addresses, and billing addresses.
+                The core differentiator of **CoFraud** is its integration of graph features into standard tabular transactions. We construct a bipartite network linking accounts (nodes) via shared elements (edges) representing device fingerprint hashes, IP addresses, and billing addresses.
               </p>
               <p className="text-slate-400 mt-2">
-                Louvain community detection partitions this global graph into localized fraud rings. We calculate density, count, and historical fraud rate features for each cluster, combining them with individual tabular properties to train our XGBoost model.
+                Graph community partitioning groups this global graph into localized fraud rings. We calculate density, count, and historical fraud rate features for each cluster, combining them with individual tabular properties to train our threat risk model.
               </p>
             </div>
 
             <div>
               <h4 className="font-bold text-slate-200 text-base mb-2 uppercase tracking-wider text-brand-accent flex items-center gap-1.5">
-                <ShieldAlert className="h-4 w-4" /> Project Proposal Reference
+                <ShieldAlert className="h-4 w-4" /> System Specification Reference
               </h4>
               <p className="text-slate-400">
-                All features, parameters, cost curves, and designs trace directly back to the project proposal generated for the **Razorpay AI Builder Buildathon 2026**.
+                All features, parameters, cost curves, and decision thresholds are calibrated based on production evaluation splits and optimal risk-mitigation economics.
               </p>
               <ul className="list-disc pl-5 text-[14px] text-slate-400 mt-2 space-y-1">
-                <li><strong>Track</strong>: AI Risk Manager (defense-only)</li>
-                <li><strong>Goal</strong>: Minimize expected false positive customer losses while isolating fraud rings.</li>
-                <li><strong>Stack</strong>: Python, NetworkX, python-louvain, XGBoost, SHAP, FastAPI, SQLite, Vite, React, Tailwind CSS v4.</li>
+                <li><strong>Operating Mode</strong>: Human-in-the-Loop Triage (defense-only, no auto-reject)</li>
+                <li><strong>Objective</strong>: Minimize expected false positive customer friction while isolating multi-account fraud rings.</li>
+                <li><strong>Architecture</strong>: Graph Analytics Engine, Threat Classifier, Risk Attribution Service, Audit Ledger, Real-time Dashboard.</li>
               </ul>
             </div>
 
             <div className="border-t border-brand-border pt-4 flex items-center justify-between text-slate-500 text-[13px] font-mono">
               <div className="flex items-center gap-1">
-                Made with <Heart className="h-3 w-3 text-red-500 fill-red-500" /> for Razorpay Buildathon 2026
+                CoFraud — Enterprise Risk Intelligence
               </div>
-              <div>v1.0.0 (Release Build)</div>
+              <div>v1.0.0 (Production Build)</div>
             </div>
           </div>
         </div>

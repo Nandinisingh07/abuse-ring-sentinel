@@ -98,12 +98,12 @@ export default function CommandCenter({ onNavigateToQueue, onSelectAccount }: Co
       >
         <div className="flex items-center gap-2">
           <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-          <span className="text-[14px] font-mono text-slate-300 font-medium">Sentinel Core: ACTIVE</span>
+          <span className="text-[14px] font-mono text-slate-300 font-medium">CoFraud Core: ACTIVE</span>
         </div>
         <div className="flex items-center gap-6 text-[13px] font-mono text-slate-500">
-          <div>MODEL: <span className="text-slate-300">XGBoost-Louvain (v1.2.0)</span></div>
-          <div>LAST RETRAIN: <span className="text-slate-300">Aug 22, 2026</span></div>
-          <div>ENVIRONMENT: <span className="text-slate-300">Production</span></div>
+          <div>MODEL: <span className="text-slate-300 font-semibold">CoFraud-Core Engine (v1.2.0)</span></div>
+          <div>LAST RETRAIN: <span className="text-slate-300 font-semibold">Aug 22, 2026</span></div>
+          <div>ENVIRONMENT: <span className="text-slate-300 font-semibold">Production</span></div>
         </div>
       </div>
 

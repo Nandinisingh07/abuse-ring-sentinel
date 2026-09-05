@@ -26,7 +26,7 @@ export default function EvaluationMethodology() {
           <div className="flex-1 w-full text-center md:text-left md:pr-4">
             <span className="text-[13px] font-bold text-risk-low uppercase tracking-widest block">TRAIN PERIOD (Days 0 - 45)</span>
             <p className="text-slate-400 text-[14px] mt-2 leading-relaxed">
-              Used to compile tabular features, construct the Louvain Graph clusters, compute historical fraud rates, and train the XGBoost classifier.
+              Used to compile tabular features, construct the ring graph clusters, compute historical fraud rates, and train the risk classifier.
             </p>
           </div>
 
@@ -89,7 +89,7 @@ export default function EvaluationMethodology() {
             <ShieldCheck className="h-4 w-4 text-brand-accent" /> Mitigating via Human-in-the-Loop
           </h3>
           <p className="text-sm text-slate-300 leading-relaxed">
-            These limitations are precisely why **Abuse-Ring Sentinel is strictly defense-only**.
+            These limitations are precisely why **CoFraud is strictly defense-only**.
           </p>
           <p className="text-sm text-slate-400 leading-relaxed mt-3">
             If the system automatically blocked accounts:

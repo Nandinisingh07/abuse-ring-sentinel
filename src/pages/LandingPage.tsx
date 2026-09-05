@@ -52,28 +52,28 @@ export default function LandingPage({ onStart, onNavigate }: LandingPageProps) {
       title: "Feature Extraction",
       shortDesc: "Simultaneous tabular feature computation and bipartite graph construction.",
       details: [
-        { label: "Data Inbound", value: "SQLite transaction records." },
-        { label: "Processing", value: "Bipartite shared-attribute graph linkages (matching device_ids and IP addresses). Modularity community partition detection via the Louvain algorithm to partition transaction nodes into communities (rings)." },
-        { label: "Output", value: "Graph metrics per node (modularity classes, degree centrality, edge weights)." }
+        { label: "Data Inbound", value: "Database transaction records." },
+        { label: "Processing", value: "Bipartite shared-attribute graph linkages (matching device_ids and IP addresses). Graph community partitioning to group transaction nodes into connected rings." },
+        { label: "Output", value: "Graph metrics per node (community classes, degree centrality, edge weights)." }
       ]
     },
     {
       id: 3,
       title: "Fusion Model",
-      shortDesc: "XGBoost classifier scores accounts using both tabular & graph features.",
+      shortDesc: "Gradient boosted risk classifier scores accounts using both tabular & graph features.",
       details: [
         { label: "Data Inbound", value: "Tabular transaction features and graph node community attributes." },
-        { label: "Processing", value: "XGBoost scoring combining local variables (amount, location) with network metrics (cluster size, cluster historical fraud rate)." },
+        { label: "Processing", value: "Machine learning risk scoring combining local variables (amount, location) with network metrics (cluster size, cluster historical fraud rate)." },
         { label: "Output", value: "Precise continuous risk probability scores [0.0 - 1.0]." }
       ]
     },
     {
       id: 4,
-      title: "SHAP Explainability",
-      shortDesc: "Shapley Additive exPlanations breaks down the contributing features.",
+      title: "Risk Factor Attribution",
+      shortDesc: "Additive feature attribution breaks down key contributing risk factors.",
       details: [
         { label: "Data Inbound", value: "Trained model parameters and scored prediction matrices." },
-        { label: "Processing", value: "Local Shapley value calculation explaining the exact additive impact of tabular and network inputs." },
+        { label: "Processing", value: "Local feature attribution calculation explaining the exact additive impact of tabular and network inputs." },
         { label: "Output", value: "Standardized feature contribution list showing why the transaction was scored high (e.g. shared device with known hold accounts)." }
       ]
     },
@@ -82,7 +82,7 @@ export default function LandingPage({ onStart, onNavigate }: LandingPageProps) {
       title: "Human Review Queue",
       shortDesc: "Flagged rings are routed to reviewers. Strictly no auto-blocking.",
       details: [
-        { label: "Data Inbound", value: "Scored transaction outputs and SHAP breakdowns." },
+        { label: "Data Inbound", value: "Scored transaction outputs and risk factor breakdowns." },
         { label: "Processing", value: "Categorization into LOW (Green), REVIEW (Orange), and HOLD (Red) risk tiers. Manual review triage queue routing." },
         { label: "Output", value: "Manual approve, escalate, or dismiss reviewer logs appended to the write-only ledger." }
       ]
@@ -265,14 +265,14 @@ export default function LandingPage({ onStart, onNavigate }: LandingPageProps) {
 
       {/* Section 1: Hero */}
       <div className="pt-24 pb-20 text-center flex flex-col items-center reveal" style={{ transitionDelay: '100ms' }}>
-        <div className="text-[11px] font-bold tracking-[0.15em] text-brand-accent uppercase mb-6 font-mono">
-          RAZORPAY AI BUILDATHON 2026 — AI RISK MANAGER TRACK
+        <div className="text-[11px] font-bold tracking-[0.18em] text-brand-accent uppercase mb-6 font-mono bg-brand-accent/10 px-3.5 py-1 rounded-full border border-brand-accent/20">
+          COFRAUD CORE PLATFORM — ENTERPRISE FRAUD INTELLIGENCE
         </div>
         <h1 className="text-[48px] md:text-[64px] font-extrabold tracking-tight text-slate-100 leading-[1.1] mb-6 max-w-[640px] font-sans">
           Fraud rings hide in plain sight.
         </h1>
         <p className="text-[18px] md:text-[20px] text-slate-400 max-w-[600px] mx-auto leading-[1.5] font-sans mb-10">
-          Abuse-Ring Sentinel finds accounts secretly connected through shared devices and IPs — and routes them to human review, never to auto-block.
+          CoFraud finds accounts secretly connected through shared devices and IPs — and routes them to human review, never to auto-block.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <button

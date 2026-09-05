@@ -32,6 +32,12 @@ type Tab =
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<Tab>('overview');
+  const [visitedTabs, setVisitedTabs] = useState<Set<Tab>>(new Set(['overview']));
+
+  const switchTab = (tab: Tab) => {
+    setVisitedTabs((prev) => new Set(prev).add(tab));
+    setActiveTab(tab);
+  };
 
   // Navigation passing state (e.g. click account in CC -> review queue details)
   const [selectedAccountId, setSelectedAccountId] = useState<string | null>(null);
@@ -60,12 +66,12 @@ export default function App() {
   }, []);
 
   const navigateToQueue = () => {
-    setActiveTab('review-queue');
+    switchTab('review-queue');
   };
 
   const handleSelectAccount = (id: string) => {
     setSelectedAccountId(id);
-    setActiveTab('review-queue');
+    switchTab('review-queue');
   };
 
   const menuItems = [
@@ -85,7 +91,7 @@ export default function App() {
           <div>
             {/* Logo Header - click to front door */}
             <div
-              onClick={() => setActiveTab('overview')}
+              onClick={() => switchTab('overview')}
               className="p-6 border-b border-brand-border cursor-pointer hover:bg-brand-bg/30 transition-colors flex items-center gap-3"
               title="Go to Overview"
             >
@@ -96,7 +102,7 @@ export default function App() {
               <div>
                 <div className="flex items-center gap-1.5 text-brand-accent">
                   <ShieldCheck className="h-5 w-5" />
-                  <span className="font-extrabold text-base tracking-wider uppercase leading-none">Sentinel Core</span>
+                  <span className="font-extrabold text-base tracking-wider uppercase leading-none">CoFraud Core</span>
                 </div>
                 <span className="text-[10px] font-mono text-slate-500 uppercase mt-1 block">AI Risk Manager • 2026</span>
               </div>
@@ -111,7 +117,7 @@ export default function App() {
                   <button
                     key={item.id}
                     onClick={() => {
-                      setActiveTab(item.id as Tab);
+                      switchTab(item.id as Tab);
                       if (item.id !== 'review-queue') setSelectedAccountId(null);
                     }}
                     className={`w-full relative flex items-center justify-between py-2.5 px-3 rounded-lg text-[14px] font-semibold font-mono transition-all duration-150 cursor-pointer ${isActive
@@ -191,35 +197,49 @@ export default function App() {
 
         {/* Page Render */}
         <div className="flex-grow overflow-y-auto">
-          {activeTab === 'overview' && (
-            <LandingPage
-              onStart={() => setActiveTab('command-center')}
-              onNavigate={(tab) => setActiveTab(tab)}
-            />
+          {visitedTabs.has('overview') && (
+            <div className={activeTab === 'overview' ? '' : 'hidden'}>
+              <LandingPage
+                onStart={() => switchTab('command-center')}
+                onNavigate={(tab) => switchTab(tab)}
+              />
+            </div>
           )}
-          {activeTab === 'command-center' && (
-            <CommandCenter
-              onNavigateToQueue={navigateToQueue}
-              onSelectAccount={handleSelectAccount}
-            />
+          {visitedTabs.has('command-center') && (
+            <div className={activeTab === 'command-center' ? '' : 'hidden'}>
+              <CommandCenter
+                onNavigateToQueue={navigateToQueue}
+                onSelectAccount={handleSelectAccount}
+              />
+            </div>
           )}
-          {activeTab === 'ring-explorer' && (
-            <RingExplorer />
+          {visitedTabs.has('ring-explorer') && (
+            <div className={activeTab === 'ring-explorer' ? '' : 'hidden'}>
+              <RingExplorer />
+            </div>
           )}
-          {activeTab === 'review-queue' && (
-            <ReviewQueue
-              selectedAccountId={selectedAccountId}
-              onClearSelectedAccount={() => setSelectedAccountId(null)}
-            />
+          {visitedTabs.has('review-queue') && (
+            <div className={activeTab === 'review-queue' ? '' : 'hidden'}>
+              <ReviewQueue
+                selectedAccountId={selectedAccountId}
+                onClearSelectedAccount={() => setSelectedAccountId(null)}
+              />
+            </div>
           )}
-          {activeTab === 'model-insights' && (
-            <ModelInsights />
+          {visitedTabs.has('model-insights') && (
+            <div className={activeTab === 'model-insights' ? '' : 'hidden'}>
+              <ModelInsights />
+            </div>
           )}
-          {activeTab === 'cost-simulator' && (
-            <CostSimulator />
+          {visitedTabs.has('cost-simulator') && (
+            <div className={activeTab === 'cost-simulator' ? '' : 'hidden'}>
+              <CostSimulator />
+            </div>
           )}
-          {activeTab === 'audit-log' && (
-            <AuditLog />
+          {visitedTabs.has('audit-log') && (
+            <div className={activeTab === 'audit-log' ? '' : 'hidden'}>
+              <AuditLog />
+            </div>
           )}
         </div>
       </main>
@@ -282,23 +302,23 @@ export default function App() {
 
                 {/* 3. Tech Stack */}
                 <div className="space-y-3">
-                  <h3 className="text-xs font-bold text-brand-accent uppercase tracking-wider font-mono">3. Technology Stack</h3>
+                  <h3 className="text-xs font-bold text-brand-accent uppercase tracking-wider font-mono">3. System Architecture</h3>
                   <div className="grid grid-cols-2 gap-2 text-xs font-mono">
                     <div className="p-2 bg-brand-bg/60 border border-brand-border rounded">
                       <span className="block text-slate-500">Graph Layer</span>
-                      <span className="text-slate-300 font-medium">NetworkX + Louvain</span>
+                      <span className="text-slate-300 font-medium">Graph Analytics Engine</span>
                     </div>
                     <div className="p-2 bg-brand-bg/60 border border-brand-border rounded">
                       <span className="block text-slate-500">Classifier</span>
-                      <span className="text-slate-300 font-medium">XGBoost Tabular</span>
+                      <span className="text-slate-300 font-medium">Gradient Risk Scorer</span>
                     </div>
                     <div className="p-2 bg-brand-bg/60 border border-brand-border rounded">
                       <span className="block text-slate-500">Explainability</span>
-                      <span className="text-slate-300 font-medium">SHAP Values</span>
+                      <span className="text-slate-300 font-medium">Risk Factor Attribution</span>
                     </div>
                     <div className="p-2 bg-brand-bg/60 border border-brand-border rounded">
                       <span className="block text-slate-500">API & DB</span>
-                      <span className="text-slate-300 font-medium">FastAPI + SQLite</span>
+                      <span className="text-slate-300 font-medium">Audit & Risk API</span>
                     </div>
                   </div>
                 </div>
@@ -312,7 +332,7 @@ export default function App() {
                       <div className="text-sm font-bold text-slate-200 mt-0.5">Cost-Based Optimal</div>
                       <button
                         onClick={() => {
-                          setActiveTab('cost-simulator');
+                          switchTab('cost-simulator');
                           setIsDocsOpen(false);
                         }}
                         className="mt-2 text-brand-accent hover:underline text-xs font-semibold block text-left"
@@ -331,7 +351,7 @@ export default function App() {
 
             {/* Footer */}
             <div className="mt-8 pt-4 border-t border-brand-border text-center text-xs text-slate-500 font-mono">
-              Abuse-Ring Sentinel System Docs
+              CoFraud System Docs
             </div>
           </div>
         </div>

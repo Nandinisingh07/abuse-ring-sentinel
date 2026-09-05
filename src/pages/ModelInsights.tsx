@@ -69,7 +69,7 @@ export default function ModelInsights() {
           <BarChart3 className="h-6 w-6 text-brand-accent" /> Model Insights & Diagnostics
         </h1>
         <p className="text-sm text-slate-400 font-sans mt-1">
-          Diagnostics representing the temporal XGBoost + Louvain Graph fusion model.
+          Diagnostics representing the temporal graph & tabular fusion risk engine.
         </p>
       </div>
 
@@ -77,31 +77,28 @@ export default function ModelInsights() {
       <div className="flex gap-2 border-b border-brand-border mb-8">
         <button
           onClick={() => setActiveSubTab('performance')}
-          className={`pb-2.5 px-4 text-xs font-mono font-bold tracking-wider uppercase border-b-2 transition-all cursor-pointer ${
-            activeSubTab === 'performance'
+          className={`pb-2.5 px-4 text-xs font-mono font-bold tracking-wider uppercase border-b-2 transition-all cursor-pointer ${activeSubTab === 'performance'
               ? 'border-brand-accent text-slate-200'
               : 'border-transparent text-slate-500 hover:text-slate-400'
-          }`}
+            }`}
         >
           Performance
         </button>
         <button
           onClick={() => setActiveSubTab('explainability')}
-          className={`pb-2.5 px-4 text-xs font-mono font-bold tracking-wider uppercase border-b-2 transition-all cursor-pointer ${
-            activeSubTab === 'explainability'
+          className={`pb-2.5 px-4 text-xs font-mono font-bold tracking-wider uppercase border-b-2 transition-all cursor-pointer ${activeSubTab === 'explainability'
               ? 'border-brand-accent text-slate-200'
               : 'border-transparent text-slate-500 hover:text-slate-400'
-          }`}
+            }`}
         >
           Explainability
         </button>
         <button
           onClick={() => setActiveSubTab('evaluation')}
-          className={`pb-2.5 px-4 text-xs font-mono font-bold tracking-wider uppercase border-b-2 transition-all cursor-pointer ${
-            activeSubTab === 'evaluation'
+          className={`pb-2.5 px-4 text-xs font-mono font-bold tracking-wider uppercase border-b-2 transition-all cursor-pointer ${activeSubTab === 'evaluation'
               ? 'border-brand-accent text-slate-200'
               : 'border-transparent text-slate-500 hover:text-slate-400'
-          }`}
+            }`}
         >
           How We Evaluated This
         </button>
@@ -189,13 +186,13 @@ export default function ModelInsights() {
       {activeSubTab === 'explainability' && (
         <div className="space-y-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Global SHAP Feature Importance */}
+            {/* Global Risk Factor Importance */}
             <div className="bg-brand-panel border border-brand-border rounded-lg p-6">
               <h3 className="text-[17px] font-bold uppercase tracking-wider font-mono text-slate-300 mb-4">
-                Global SHAP Feature Importance
+                Global Risk Factor Importance
               </h3>
               <p className="text-[13px] text-slate-400 mb-6">
-                Mean absolute SHAP value across all predictions. Graph features represent Louvain cluster properties.
+                Mean absolute feature impact score across all predictions. Graph features represent ring cluster properties.
               </p>
               {globalImportance.length > 0 ? (
                 <div className="space-y-3 font-mono text-[12px]">
@@ -234,8 +231,8 @@ export default function ModelInsights() {
                 <div>
                   <h4 className="font-semibold text-slate-200 mb-1 font-mono uppercase text-[12px] text-brand-accent">Training Specifications</h4>
                   <ul className="list-disc pl-5 space-y-1 text-[13px] text-slate-450">
-                    <li><strong>Algorithm</strong>: Extreme Gradient Boosting (XGBoost Classifier)</li>
-                    <li><strong>Graph features</strong>: Louvain modularity clustering over device_id/IP/address linkages</li>
+                    <li><strong>Algorithm</strong>: Gradient Boosted Risk Classifier</li>
+                    <li><strong>Graph features</strong>: Modularity clustering over device_id/IP/address linkages</li>
                     <li><strong>Temporal partition</strong>: Train period (Days 0-45), Test period (Days 46-60)</li>
                     <li><strong>Precision / Recall / F1</strong>: {(metrics.precision * 100).toFixed(1)}% / {(metrics.recall * 100).toFixed(1)}% / {(metrics.f1_score * 100).toFixed(1)}% at threshold {metrics.threshold_used}</li>
                   </ul>
@@ -265,7 +262,7 @@ export default function ModelInsights() {
               <div className="flex-1 w-full text-center md:text-left md:pr-4">
                 <span className="text-[13px] font-bold text-risk-low uppercase tracking-widest block">TRAIN PERIOD (Days 0 - 45)</span>
                 <p className="text-slate-450 text-[13px] mt-2 leading-relaxed">
-                  Used to compile tabular features, construct the Louvain Graph clusters, compute historical fraud rates, and train the XGBoost classifier.
+                  Used to compile tabular features, construct the ring graph clusters, compute historical fraud rates, and train the risk classifier.
                 </p>
               </div>
 

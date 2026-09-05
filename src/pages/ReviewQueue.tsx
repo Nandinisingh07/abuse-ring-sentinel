@@ -225,9 +225,9 @@ export default function ReviewQueue({ selectedAccountId, onClearSelectedAccount 
                   </div>
                 </div>
 
-                {/* SHAP Explanation Bar Chart */}
+                {/* Risk Factor Attribution Bar Chart */}
                 <div className="mb-4">
-                  <span className="text-[13px] font-bold font-mono text-slate-500 uppercase block mb-2">SHAP Explanations (Feature Impact)</span>
+                  <span className="text-[13px] font-bold font-mono text-slate-500 uppercase block mb-2">Risk Factor Attribution (Feature Impact)</span>
                   {explanation ? (
                     <div className="space-y-3">
                       {explanation.top_reasons.map((feat) => {
@@ -256,18 +256,27 @@ export default function ReviewQueue({ selectedAccountId, onClearSelectedAccount 
                       })}
                     </div>
                   ) : (
-                    <div className="text-sm text-slate-500 italic py-2">No SHAP explanation available for this account.</div>
+                    <div className="text-sm text-slate-500 italic py-2">No risk factor breakdown available for this account.</div>
                   )}
                 </div>
 
                 {/* Shared Cluster Info */}
                 {clusterInfo && (
                   <div>
-                    <span className="text-[13px] font-bold font-mono text-slate-500 uppercase block mb-1.5">Cluster Ring Details</span>
-                    <div className="p-2 bg-brand-bg/50 border border-brand-border rounded text-[13px] font-mono space-y-1 text-slate-300">
-                      <div>RING ID: <span className="text-slate-100 font-bold">#{clusterInfo.cluster_id}</span></div>
-                      <div>RING SIZE: <span className="text-slate-100">{clusterInfo.size} Accounts</span></div>
-                      <div>HISTORICAL FRAUD: <span className="text-risk-hold">{(clusterInfo.fraud_rate * 100).toFixed(1)}%</span></div>
+                    <span className="text-[13px] font-bold font-mono text-slate-500 uppercase block mb-2">Network Cluster #{clusterInfo.cluster_id} Details</span>
+                    <div className="bg-brand-bg/50 border border-brand-border rounded p-3 text-[13px] font-mono space-y-1 text-slate-400">
+                      <div className="flex justify-between">
+                        <span>Members Count:</span>
+                        <span className="text-slate-200 font-bold">{clusterInfo.members.length} accounts</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Cluster Size:</span>
+                        <span className="text-slate-200 font-bold">{clusterInfo.size} total</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Fraud Rate:</span>
+                        <span className="text-risk-hold font-bold">{(clusterInfo.fraud_rate * 100).toFixed(1)}%</span>
+                      </div>
                     </div>
                   </div>
                 )}
@@ -308,7 +317,7 @@ export default function ReviewQueue({ selectedAccountId, onClearSelectedAccount 
             <div className="flex flex-col items-center justify-center flex-grow text-center text-slate-500 p-4">
               <ShieldAlert className="h-8 w-8 text-slate-600 mb-2" />
               <p className="text-sm font-sans">
-                Select a user ID from the list on the left to load its tabular logs, cluster features, and SHAP decisioning breakdown.
+                Select a user ID from the list on the left to load its tabular logs, cluster features, and risk factor decisioning breakdown.
               </p>
             </div>
           )}
