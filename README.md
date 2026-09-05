@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🛡️ ABUSE-RING SENTINEL
+# 🛡️ COFRAUD
 
 ### Graph-Native Fraud Ring Detection with Cost-Aware, Human-in-the-Loop Decisioning
 
@@ -71,7 +71,7 @@
 
 ## 🔎 Overview
 
-Most fraud systems score **one transaction at a time**. **Abuse-Ring Sentinel** instead builds a **shared-attribute graph** across every account — connecting accounts that share a device ID or IP address — runs **Louvain community detection** to surface coordinated rings, and fuses those graph signals into an **XGBoost classifier** alongside standard transaction features.
+Most fraud systems score **one transaction at a time**. **CoFraud** instead builds a **shared-attribute graph** across every account — connecting accounts that share a device ID or IP address — runs **Louvain community detection** to surface coordinated rings, and fuses those graph signals into an **XGBoost classifier** alongside standard transaction features.
 
 Every score ships with a **SHAP explanation**. Every flagged account goes to a **human reviewer** — the system never auto-blocks. Every reviewer action is **logged and audit-exportable**. And the decision threshold isn't hardcoded — a **cost simulator** lets an ops team pick it based on real dollar trade-offs between false positives and missed fraud.
 
@@ -89,7 +89,7 @@ Every score ships with a **SHAP explanation**. Every flagged account goes to a *
 | 🔲 **Fixed thresholds** | One cutoff, chosen once, never revisited against actual review-cost vs. fraud-cost trade-offs. |
 | ⬛ **Auto-block risk** | Automated rejection, no human check — a single false positive becomes a lost legitimate customer instantly. |
 
-**Abuse-Ring Sentinel addresses all four:** graph-aware scoring, SHAP-backed explanations, a live cost simulator, and a strict human-review-only policy.
+**CoFraud addresses all four:** graph-aware scoring, SHAP-backed explanations, a live cost simulator, and a strict human-review-only policy.
 
 ---
 
