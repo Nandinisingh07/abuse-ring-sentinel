@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/cofraud-banner.svg" alt="CoFraud — Graph-Native Fraud Ring Detection" width="100%" />
+<img src="assets/cofraud-banner.png" alt="CoFraud — Graph-Native Fraud Ring Detection" width="100%" />
 
 # 🛡️ COFRAUD
 
@@ -354,6 +354,15 @@ flowchart TB
 </td>
 </tr>
 </table>
+
+---
+</td>
+</tr>
+</table>
+
+### Demo Animated Video
+
+[Watch the full demo](docs/demo/cofraud-demo.mp4)
 
 ---
 
